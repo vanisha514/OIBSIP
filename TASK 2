@@ -1,0 +1,51 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Task2{
+    private static final int min_range = 1;
+    private static final int max_range = 100;
+    private static final int max_attempts = 10;
+    private static final int max_rounds = 3;
+
+    public static void main(String[] args){
+
+    Random random = new Random();
+    Scanner sc = new Scanner(System.in);
+    int totalScore = 0;
+
+    System.out.printf("NUMBER GUESSING GAME\n");
+    System.out.printf("Total no. of rounds : 3\n");
+    System.out.printf("Attempts to guess number in each round : 10\n");
+    for(int i = 1 ; i<= max_rounds ; i++){
+        int number = random.nextInt(max_range)+ min_range;
+        int attempts = 0;
+        System.out.printf("Round %d : Guess your number between %d to %d in %d attempts.\n", i, min_range, max_range, max_attempts);
+        while(attempts < max_attempts){
+            System.out.printf("Guess your number: ");
+            int guess_number = sc.nextInt();
+            attempts = attempts+ 1;
+
+            if(number == guess_number){
+                int score = max_attempts - attempts;
+                totalScore = totalScore + score;
+                System.out.printf("Congratulations! You had a right guess. Attempts = %d and Round Score = %d\n" ,attempts,score);
+                break;
+            }
+            else if (number > guess_number){
+                System.out.printf("Sorry! Your number is lesser than the guessed number. Attempts left = %d\n",max_attempts-attempts);
+            }
+            else if(number < guess_number){
+                System.out.printf("Sorry! Your number is greater than the number. Attempts left = %d\n",max_attempts-attempts);
+            }
+        }
+
+        if(attempts == max_attempts){
+            System.out.printf("Round = %d\n", i);
+            System.out.printf("Attempts = 0\n");
+            System.out.printf("The Random Number is: %d\n", number);
+        }
+    }
+    System.out.printf("Game Over. Total Score = %d\n",totalScore);
+    sc.close();
+    } 
+}
