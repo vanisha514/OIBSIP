@@ -1,13 +1,13 @@
 # OIBSIP
 
-#TASK 2:-
+# TASK 2:-
 NUMBER GUESSING GAME
 The project should be capable of the following functionalities.
 • enter input
 • guess the numbers
 • Display result
 
-#TASK 3:-
+# TASK 3:-
 ATM INTERFACE
 The project should be capable of the following functionalities.
 • Transaction History
